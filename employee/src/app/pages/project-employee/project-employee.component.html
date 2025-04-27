@@ -1,1 +1,123 @@
-<p>project-employee works!</p>
+<div class="col-12" *ngIf="currentView !== 'list'">
+  <div class="card mt-3">
+    <div class="card-header bg-secondary text-white">
+      <div class="row">
+        <div class="col-6">
+          <strong>New Project</strong>
+        </div>
+        <div class="col-6 text-end">
+          <button class="btn btn-primary" (click)="currentView = 'list'">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <form class="mb-4" [formGroup]="projectForm" (ngSubmit)="onSaveProject()">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="projectName" class="form-label">Project Name</label>
+            <input
+              type="text"
+              formControlName="projectName"
+              class="form-control"
+              id="projectName"
+              placeholder="Project Name"
+              name="projectName"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="clientName" class="form-label">Client Name</label>
+            <input
+              type="text"
+              formControlName="clientName"
+              class="form-control"
+              id="clientName"
+              name="clientName"
+              placeholder="Client Name"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input
+              type="date"
+              formControlName="startDate"
+              class="form-control"
+              id="startDate"
+              name="startDate"
+              placeholder="Start Date"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="leadByEmpId" class="form-label">Lead By Employee</label>
+            <!-- <input
+                type="text"
+                formControlName="leadByEmpId"
+                class="form-control"
+                id="leadByEmployee"
+                name="leadByEmployee"
+                placeholder="Enter Lead Employee ID"
+              /> -->
+
+            <select class="form-select" formControlName="leadByEmpId">
+              <option value="">-- Select Employee --</option>
+              <option
+                *ngFor="let emp of employeeData$ | async"
+                [value]="emp.employeeId"
+              >
+                {{ emp.employeeName }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="contactPerson" class="form-label">Contact Person</label>
+            <input
+              type="text"
+              formControlName="contactPerson"
+              class="form-control"
+              id="contactPerson"
+              name="contactPerson"
+              placeholder="Contact Person"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="contactNoProject" class="form-label"
+              >Contact Number</label
+            >
+            <input
+              type="text"
+              formControlName="contactNo"
+              class="form-control"
+              id="contactNo"
+              name="contactNo"
+              placeholder="Enter Contact No"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email ID</label>
+            <input
+              type="email"
+              formControlName="emailId"
+              class="form-control"
+              id="emailId"
+              name="emailId"
+              placeholder="Enter Email"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-warning mt-3">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

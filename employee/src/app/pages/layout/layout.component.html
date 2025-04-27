@@ -45,6 +45,11 @@
                 <h4>Employees</h4>
               </a>
             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="/new-employee">
+                <h4>New Employees</h4>
+              </a>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" routerLink="/projects"> <h4>Projects</h4></a>
             </li>
@@ -53,6 +58,13 @@
                 <h4>Projects Employee</h4></a
               >
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()" style="cursor: pointer">
+                <h4>Logout</h4>
+              </a>
+            </li>
+
             <!-- <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"

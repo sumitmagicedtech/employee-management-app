@@ -4,6 +4,7 @@ import {  FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angu
 import { Observable } from 'rxjs';
 import { Employee, Project, projectEmployee } from '../../model/Employee';
 import { EmployeeService } from '../../services/employee.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-project',
   imports: [CommonModule,FormsModule, ReactiveFormsModule, AsyncPipe, DatePipe],
@@ -11,7 +12,10 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrl: './project.component.css'
 })
 export class ProjectComponent implements OnInit {
-constructor(private employeeSrv: EmployeeService) {
+constructor(
+  private employeeSrv: EmployeeService,
+  private router: Router
+) {
   this.initializeForms();
   this.employeeData$ = this.employeeSrv.getEmployee();
   
@@ -23,6 +27,10 @@ constructor(private employeeSrv: EmployeeService) {
   if (this.employeeModel) {
     this.employeeModel.nativeElement.style.display = 'none';
   }
+}
+
+onCreateNewProject() {
+  this.router.navigate(['/employee-projects']); // Navigate to the employee-projects route
 }
 
 onAddEmployee(id: number) {
@@ -38,6 +46,8 @@ onAddEmployee(id: number) {
 
  ngOnInit(): void {
    this.getAllProject();
+      // Set the default view to 'list'
+      this.currentView = 'list';
  }
 
   currentView: string = 'List';
@@ -106,7 +116,7 @@ onSaveProject() {
       }
     });
   } else {
-    this.employeeSrv.upateProject(formsValue).subscribe({
+    this.employeeSrv.upadteProject(formsValue).subscribe({
       next: (res: Project) => {
         alert('Project Updated Successfully');
         this.getAllProject();

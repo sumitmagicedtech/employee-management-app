@@ -1,0 +1,135 @@
+<div class="card">
+  <div class="card-header bg-secondary">
+    <div class="row">
+      <div class="col-6 text-white">
+        <h4><strong>New Employee</strong></h4>
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-danger" (click)="close()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <form class="mb-4">
+      <div class="row">
+        <div class="col-md-6">
+          <label>Employee Name</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="employeeObj.employeeName"
+            name="employeeName"
+            id="employeeName"
+            placeholder="Enter Employee Name"
+          />
+        </div>
+        <div class="col-md-6">
+          <label>Contact No</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="employeeObj.contactNo"
+            name="contactNo"
+            id="contactNo"
+            placeholder="Contact No"
+          />
+        </div>
+        <div class="col-md-6">
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control"
+            [(ngModel)]="employeeObj.emailId"
+            name="emailId"
+            id="email"
+            placeholder="Enter Email"
+          />
+        </div>
+        <div class="col-md-6">
+          <label>Password</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="employeeObj.password"
+            name="password"
+            id="password"
+            placeholder="Enter Password"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="gender" class="form-label">Gender</label>
+          <input
+            type="radio"
+            value="Male"
+            name="gender"
+            [(ngModel)]="employeeObj.gender"
+          />
+          Male
+          <input
+            type="radio"
+            value="Female"
+            name="gender"
+            [(ngModel)]="employeeObj.gender"
+          />
+          Female
+        </div>
+        <div class="col-md-6">
+          <label for="deptId" class="form-label">Parent Department</label>
+          <select
+            class="form-select"
+            [(ngModel)]="deptId"
+            name="parentDeptId"
+            id="parentDeptId"
+            (change)="onDeptChange()"
+          >
+            <option selected>Select Parent Department</option>
+            <option
+              *ngFor="let item of parentDeptList"
+              [value]="item.departmentId"
+            >
+              {{ item.departmentName }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="deptId" class="form-label">Child Department</label>
+          <select
+            class="form-select"
+            id="childDeptId"
+            [(ngModel)]="employeeObj.deptId"
+            name="childDeptId"
+          >
+            <option selected>Select Department</option>
+            <option
+              *ngFor="let item of childDeptList"
+              [value]="item.childDeptId"
+            >
+              {{ item.departmentName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 text-end">
+          <button
+            *ngIf="employeeObj.employeeId == 0"
+            type="button"
+            (click)="onSaveEmp()"
+            class="btn btn-warning"
+          >
+            Submit
+          </button>
+          <button
+            *ngIf="employeeObj.employeeId != 0"
+            type="button"
+            (click)="onUpdateEmp()"
+            class="btn btn-primary"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

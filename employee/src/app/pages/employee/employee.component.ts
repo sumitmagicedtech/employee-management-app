@@ -1,9 +1,11 @@
+
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { MasterService } from '../../services/master.service';
 import { Employee, IApiResponse, IChildDept, IParentDept } from '../../model/Employee';
 import { FormsModule } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -15,6 +17,7 @@ export class EmployeeComponent implements OnInit {
 
   masterService = inject(MasterService);
   employeeService = inject(EmployeeService);
+  router = inject(Router);
 
 isSidePanelOpen = signal<boolean>(false);
 
@@ -32,6 +35,7 @@ ngOnInit(): void {
 
 addNew(){
   this.isSidePanelOpen.set(true);
+  this.router.navigate(['/new-employee']);
 }
 
 close(){
@@ -41,14 +45,12 @@ close(){
 getEmployees() {
 this.employeeService.getEmployee().subscribe((res: Employee[]) => {
   this.employeeList = res;
-  console.log(this.employeeList);
 });
 }
 
 getParentDeptList() {
   this.masterService.getParentDept().subscribe((res:IApiResponse) => {
  this.parentDeptList = res.data;
- console.log(this.parentDeptList);
   });
 }
 
@@ -56,7 +58,6 @@ getParentDeptList() {
 onDeptChange(){
   this.masterService.getChildDeptByParentId(this.deptId).subscribe((res:IApiResponse) => {
     this.childDeptList = res.data;
-    console.log(res.data);
   });
 }
 
@@ -81,7 +82,8 @@ onUpdateEmp(){
 
 onEdit(obj: Employee) {
   this.employeeObj = obj;
- 
+  this.router.navigate(['/edit-employee', obj.employeeId]);
+
 }
 
 onDelete(id: number){

@@ -66,6 +66,7 @@ export class projectEmployee {
   isActive: boolean;
   projectName?: string;
   employeeName?: string;
+  valid: any;
 
   constructor() {
     this.assignedDate = '';

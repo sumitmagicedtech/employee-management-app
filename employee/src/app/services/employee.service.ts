@@ -26,6 +26,11 @@ apiUrl = 'https://projectapi.gerasim.in/api/EmployeeManagement/';
     return this.http.delete<Employee>(this.apiUrl+'DeleteEmployee/'+id);
   }
 
+  // Method to get a single employee by ID
+  getEmployeeById(employeeId: number) {
+    return this.http.get<Employee>(`${this.apiUrl}GetEmployee/${employeeId}`);
+  }
+
   createNewProject(obj:Project){
     return this.http.post<Project>(`${this.apiUrl}CreateProject`, obj);
    }
@@ -34,7 +39,7 @@ apiUrl = 'https://projectapi.gerasim.in/api/EmployeeManagement/';
     return this.http.get<Project[]>(this.apiUrl+'GetAllProjects');
   }
 
-  upateProject(obj:Project){
+  upadteProject(obj:Project){
     return this.http.put<Project>(this.apiUrl+'UpdateProject/'+obj.projectId,obj);
   }
 

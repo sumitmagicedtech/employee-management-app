@@ -1,7 +1,17 @@
 <div class="container">
   <div class="form-box login">
-    <form (ngSubmit)="login()">
-      <h1>Login</h1>
+    <form (ngSubmit)="signup()">
+      <h1>Register</h1>
+      <div class="input-box">
+        <input
+          type="text"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Name"
+          required
+        />
+        <i class="bx bxs-user"></i>
+      </div>
       <div class="input-box">
         <input
           type="email"
@@ -18,14 +28,12 @@
           [(ngModel)]="password"
           name="password"
           placeholder="Password"
-          autocomplete="new-password"
           required
         />
         <i class="bx bxs-lock-alt"></i>
       </div>
-      <button type="submit" class="btn">Login</button>
-      <p>{{ error }}</p>
-      <!-- <p>Don't have an account? <a routerLink="/signup">Sign up</a></p> -->
+      <button type="submit" class="btn">SignUp</button>
+      <p>{{ message }}</p>
     </form>
   </div>
 
@@ -57,9 +65,9 @@
 
   <div class="toggle-box">
     <div class="toggle-panel toggle-left">
-      <h1>SignUp, Here!</h1>
-      <p>Don't have an account?</p>
-      <button class="btn register-btn" routerLink="/signup">SignUp</button>
+      <h1>Login, Here!</h1>
+      <p>Already have an account?</p>
+      <button class="btn register-btn" routerLink="/login">Login</button>
     </div>
   </div>
 </div>
