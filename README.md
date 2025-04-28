@@ -80,7 +80,7 @@ Clone the repository:
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/employee-management-app.git
+git clone https://github.com/sumitmagicedtech/employee-management-app.git
 cd employee-management-app
 Install the dependencies:
 
