@@ -6,44 +6,6 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 export class AuthService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
 
-  // login(email: string, password: string): Observable<boolean> {
-  //   // Mock login logic (replace with real API call)
-  //   if (email && password) {
-  //     this.isLoggedInSubject.next(true);
-  //     return of(true);
-  //   }
-  //   return of(false);
-  // }
-
-  // signup(name: string, email: string, password: string): Observable<boolean> {
-  //   // Mock signup logic (replace with real API call)
-  //   if (name && email && password) {
-  //     // Assume signup is successful, now log the user in automatically
-  //     this.isLoggedInSubject.next(true); // Set the login status to true
-  //     return of(true);
-  //   }
-  //   return of(false);
-  // }
-
-  // isLoggedIn(): Observable<boolean> {
-  //   return this.isLoggedInSubject.asObservable();
-  // }
-
-  // logout(): void {
-  //   this.isLoggedInSubject.next(false);
-  //   localStorage.removeItem('employeeApp'); // Optional: clear saved session
-  // }
-  
-
-  // signup(name: string, email: string, password: string): Observable<boolean> {
-  //   if (name && email && password) {
-  //     const user = { name, email, password };
-  //     localStorage.setItem('registeredUser', JSON.stringify(user));
-  //     this.isLoggedInSubject.next(true);
-  //     return of(true);
-  //   }
-  //   return of(false);
-  // }
   signup(name: string, email: string, password: string): Observable<boolean> {
     if (name && email && password) {
       // Get the existing users array from localStorage or create a new one if empty
@@ -64,17 +26,6 @@ export class AuthService {
     return of(false);
   }
   
-  
-  // login(email: string, password: string): Observable<boolean> {
-  //   const storedUser = localStorage.getItem('registeredUser');
-  
-  //   if (storedUser) {
-  //     const user = JSON.parse(storedUser);
-  //     if (user.email === email && user.password === password) {
-  //       this.isLoggedInSubject.next(true);
-  //       return of(true);
-  //     }
-  //   }
   login(email: string, password: string): Observable<boolean> {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     
@@ -93,7 +44,6 @@ export class AuthService {
   
  logout(): void {
     this.isLoggedInSubject.next(false);
-    // localStorage.removeItem('employeeApp'); // Optional: clear saved session
   }
 
  isLoggedIn(): Observable<boolean> {

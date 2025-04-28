@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProjectComponent } from './project.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { EmployeeService } from '../../services/employee.service';
+import { MasterService } from '../../services/master.service';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -8,7 +11,8 @@ describe('ProjectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProjectComponent]
+      imports: [ProjectComponent],
+      providers: [MasterService, EmployeeService, HttpClient, HttpHandler],
     })
     .compileComponents();
 

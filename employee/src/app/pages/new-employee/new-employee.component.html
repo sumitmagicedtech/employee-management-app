@@ -1,9 +1,12 @@
+<!-- Card container for the employee form -->
 <div class="card">
   <div class="card-header bg-secondary">
     <div class="row">
+      <!-- Title Section -->
       <div class="col-6 text-white">
         <h4><strong>New Employee</strong></h4>
       </div>
+      <!-- Close Button -->
       <div class="col-6 text-end">
         <button class="btn btn-danger" (click)="close()">Close</button>
       </div>
@@ -11,8 +14,10 @@
   </div>
 
   <div class="card-body">
+    <!-- Form for employee details -->
     <form class="mb-4">
       <div class="row">
+        <!-- Employee Name Field -->
         <div class="col-md-6">
           <label>Employee Name</label>
           <input
@@ -24,6 +29,7 @@
             placeholder="Enter Employee Name"
           />
         </div>
+        <!-- Contact No Field -->
         <div class="col-md-6">
           <label>Contact No</label>
           <input
@@ -35,6 +41,7 @@
             placeholder="Contact No"
           />
         </div>
+        <!-- Email Field -->
         <div class="col-md-6">
           <label>Email</label>
           <input
@@ -46,6 +53,7 @@
             placeholder="Enter Email"
           />
         </div>
+        <!-- Password Field -->
         <div class="col-md-6">
           <label>Password</label>
           <input
@@ -57,6 +65,7 @@
             placeholder="Enter Password"
           />
         </div>
+        <!-- Gender Field (Radio buttons) -->
         <div class="col-md-6">
           <label for="gender" class="form-label">Gender</label>
           <input
@@ -74,6 +83,7 @@
           />
           Female
         </div>
+        <!-- Parent Department Dropdown -->
         <div class="col-md-6">
           <label for="deptId" class="form-label">Parent Department</label>
           <select
@@ -92,6 +102,7 @@
             </option>
           </select>
         </div>
+        <!-- Child Department Dropdown -->
         <div class="col-md-6">
           <label for="deptId" class="form-label">Child Department</label>
           <select
@@ -112,6 +123,7 @@
       </div>
       <div class="row mt-4">
         <div class="col-12 text-end">
+          <!-- Save Button (only for new employees) -->
           <button
             *ngIf="employeeObj.employeeId == 0"
             type="button"
@@ -120,6 +132,7 @@
           >
             Submit
           </button>
+          <!-- Update Button (only for existing employees) -->
           <button
             *ngIf="employeeObj.employeeId != 0"
             type="button"

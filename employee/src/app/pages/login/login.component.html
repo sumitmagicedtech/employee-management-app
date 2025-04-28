@@ -1,7 +1,9 @@
 <div class="container">
+  <!-- Login Form -->
   <div class="form-box login">
     <form (ngSubmit)="login()">
       <h1>Login</h1>
+      <!-- Email input field with icon -->
       <div class="input-box">
         <input
           type="email"
@@ -11,7 +13,9 @@
           required
         />
         <i class="bx bxs-envelope"></i>
+        <!-- Email icon -->
       </div>
+      <!-- Password input field with icon -->
       <div class="input-box">
         <input
           type="password"
@@ -22,39 +26,49 @@
           required
         />
         <i class="bx bxs-lock-alt"></i>
+        <!-- Lock icon -->
       </div>
+      <!-- Submit button for login -->
       <button type="submit" class="btn">Login</button>
+      <!-- Display error message if any -->
       <p>{{ error }}</p>
-      <!-- <p>Don't have an account? <a routerLink="/signup">Sign up</a></p> -->
     </form>
   </div>
 
+  <!-- Registration Form -->
   <div class="form-box register">
     <form action="#">
       <h1>Registration</h1>
+      <!-- Username input field with icon -->
       <div class="input-box">
         <input type="text" placeholder="Username" required />
         <i class="bx bxs-user"></i>
+        <!-- User icon -->
       </div>
+      <!-- Email input field with icon -->
       <div class="input-box">
         <input type="email" placeholder="Email" required />
         <i class="bx bxs-envelope"></i>
+        <!-- Email icon -->
       </div>
+      <!-- Password input field with icon -->
       <div class="input-box">
         <input type="password" placeholder="Password" required />
         <i class="bx bxs-lock-alt"></i>
+        <!-- Lock icon -->
       </div>
+      <!-- Register button -->
       <button type="submit" class="btn" routerLink="/signup">Register</button>
       <p>or register with social platforms</p>
       <div class="social-icons">
-        <a href="#"><i class="bx bxl-google"></i></a>
-        <a href="#"><i class="bx bxl-facebook"></i></a>
+        <!-- Social icons for login -->
         <a href="#"><i class="bx bxl-github"></i></a>
         <a href="#"><i class="bx bxl-linkedin"></i></a>
       </div>
     </form>
   </div>
 
+  <!-- Toggle Box for switching between login and register -->
   <div class="toggle-box">
     <div class="toggle-panel toggle-left">
       <h1>SignUp, Here!</h1>

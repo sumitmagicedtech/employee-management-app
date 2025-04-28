@@ -14,7 +14,7 @@ apiUrl = 'https://projectapi.gerasim.in/api/EmployeeManagement/';
    return this.http.post<Employee>(this.apiUrl+'CreateEmployee', obj);
   }
 
-  upateEmployee(obj:Employee){
+  updateEmployee(obj:Employee){
     return this.http.put<Employee>(this.apiUrl+'UpdateEmployee/'+obj.employeeId,obj);
   }
 

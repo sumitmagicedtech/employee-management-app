@@ -1,72 +1,43 @@
-import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-
+import { CommonModule } from '@angular/common'; // Importing CommonModule for common Angular directives like ngIf and ngFor
+import { Component } from '@angular/core'; // Importing Component and inject for dependency injection
+import { FormsModule } from '@angular/forms'; // Importing FormsModule to enable form-related functionality
+import { Router, RouterLink } from '@angular/router'; // Importing Router and RouterLink for navigation
+import { AuthService } from '../../services/auth.service'; // Importing AuthService to handle authentication
 
 @Component({
-  selector: 'app-login',
-  imports: [CommonModule, FormsModule, RouterLink],
-  standalone: true,
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  selector: 'app-login', // The selector for the component (used in HTML)
+  imports: [CommonModule, FormsModule, RouterLink], // Importing required modules for this component
+  standalone: true, // This is a standalone component, meaning it doesn't depend on any module
+  templateUrl: './login.component.html', // The HTML template for this component
+  styleUrl: './login.component.css' // The CSS styles for this component
 })
 export class LoginComponent {
-// loginObj : any = {
-//   "userName": "",
-//   "password": ""
-// }
+  email = ''; // Variable to store the user's email input
+  password = ''; // Variable to store the user's password input
+  error = ''; // Variable to store error messages if the login fails
 
-// http = inject(HttpClient);
-// router = inject(Router);
-
-
-// onLogin() {
-//   this.http.post('https://projectapi.gerasim.in/api/EmployeeManagement/login', this.loginObj).subscribe((res: any) => {
-//     localStorage.setItem('employeeApp', JSON.stringify(res.data));
-// if(res.result){
-// this.router.navigateByUrl('/dashboard');
-// }else{
-//   alert(res.message);
-//   }
-// })
-
-// }
-
-// }
-
-ngOnInit() {
-  this.password = '';
-}
-
-email = '';
-  password = '';
-  error = '';
-
+  // Constructor with dependency injection of AuthService and Router
   constructor(private authService: AuthService, private router: Router) {}
 
-  // login() {
-  //   this.authService.login(this.email, this.password).subscribe((success) => {
-  //     if (success) {
-  //       this.router.navigate(['/dashboard']); // Redirect to homepage
-  //     } else {
-  //       this.error = 'Invalid credentials, please try again.';
-  //     }
-  //   });
-  // }
-  
+  // ngOnInit lifecycle hook to initialize component variables
+  ngOnInit() {
+    this.password = ''; // Ensuring password field is empty when the component is initialized
+  }
+
+  // Method to handle login logic
   login() {
+    // Calling the login method from AuthService, passing email and password
     this.authService.login(this.email, this.password).subscribe((success) => {
+      // If login is successful, navigate to the dashboard
       if (success) {
         this.router.navigate(['/dashboard']);
       } else {
+        // If login fails, show an error message and clear the password for security reasons
         this.error = 'Invalid email or password.';
         this.password = ''; // Clear password for security
       }
     });
   }
   
+  // You can add other methods here if needed (for example, for handling form validation or error handling)
 }
-

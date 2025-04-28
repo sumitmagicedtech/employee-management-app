@@ -1,23 +1,19 @@
 header {
-  background: transparent; /* Initial transparent background */
+  background: transparent;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky; /* Make the header sticky */
-  top: 0; /* Stick to the top of the viewport */
-  z-index: 1000; /* Ensure it stays on top of other content */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   width: 100%;
-  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for background color and shadow */
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 header.scrolled {
-  background-color: #ebf4f6; /* Background color after scrolling past hero section */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-}
-
-header .logo ion-icon {
-  font-size: 50px; /* Adjust size to match the original logo height */
+  background-color: #ebf4f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header nav ul {
@@ -32,29 +28,28 @@ header nav ul li {
 }
 
 header nav ul li:last-child {
-  margin-right: 30px; /* Add extra space after the last item (Contact) */
+  margin-right: 30px;
 }
 
 header nav ul li a {
-  color: #071952; /* Dark navy text for links */
+  color: #071952;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 header nav ul li a:hover {
-  color: #088395; /* Darker teal on hover */
+  color: #088395;
 }
 
 #hero {
-  background-color: #ebf4f6; /* Background color for hero section */
-  color: #071952; /* Dark navy text for hero section */
+  background-color: #ebf4f6;
+  color: #071952;
   text-align: center;
   padding: 4rem 1rem;
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 #hero .cta-btn {
-  background-color: #37b7c3; /* Primary color for CTA button */
+  background-color: #37b7c3;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -63,151 +58,81 @@ header nav ul li a:hover {
   cursor: pointer;
   margin-top: 1rem;
   border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s;
 }
 
 #hero .cta-btn:hover {
-  background-color: #088395; /* Darker teal on hover */
+  background-color: #088395;
+}
+
+#features,
+#how-it-works,
+#resources {
+  padding: 2rem 1rem;
+  color: white;
+  text-align: center;
 }
 
 #features {
-  background-color: #37b7c3; /* Primary color for features section */
-  padding: 2rem 1rem;
-  color: white; /* White text for contrast */
-  text-align: center;
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
-}
-
-.features-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.feature-card {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 250px; /* Use max-width instead of width to be more flexible */
-  text-align: center;
-  color: #071952; /* Dark navy text */
-}
-
-.feature-card ion-icon {
-  font-size: 50px; /* Adjust icon size as needed */
-  color: #071952; /* Dark navy color */
-  margin-bottom: 1rem; /* Space between icon and text */
+  background-color: #37b7c3;
 }
 
 #how-it-works {
-  background-color: #37b7c3; /* Primary color for how it works section */
-  padding: 2rem 1rem;
-  color: white; /* White text for contrast */
-  text-align: center;
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
-}
-
-.steps-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.step {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 250px; /* Use max-width instead of width to be more flexible */
-  text-align: center;
-  color: #071952; /* Dark navy text */
-}
-
-.step ion-icon {
-  font-size: 50px; /* Adjust icon size as needed */
-  color: #071952; /* Dark navy color */
-  margin-bottom: 1rem; /* Space between icon and text */
+  background-color: #37b7c3;
 }
 
 #resources {
-  background-color: #37b7c3; /* Primary color for resources section */
-  padding: 2rem 1rem;
-  color: #ebf4f6; /* Dark navy text for contrast */
-  text-align: center;
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  background-color: #37b7c3;
+  color: #ebf4f6;
 }
 
+.features-container,
+.steps-container,
 .resources-container {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  flex-wrap: wrap;
 }
 
+.feature-card,
+.step,
 .resource-card {
-  background-color: white; /* Background color for card */
+  background-color: white;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 250px; /* Use max-width instead of width to be more flexible */
+  max-width: 250px;
   text-align: center;
-  color: #071952; /* Dark navy text */
+  color: #071952;
 }
 
-.resource-card h3 {
-  margin-top: 0;
+.feature-card ion-icon,
+.step ion-icon {
+  font-size: 50px;
+  color: #071952;
+  margin-bottom: 1rem;
 }
 
 .resource-link {
-  color: #37b7c3; /* Primary color for link text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Make text clickable */
-  cursor: pointer; /* Show pointer cursor on hover */
-  margin-top: 1rem; /* Add space between title and text */
-  font-size: 0.9rem; /* Adjust font size as needed */
+  color: #37b7c3;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
 .resource-link:hover {
-  color: #088395; /* Darker teal on hover */
-  text-decoration: underline; /* Optional: underline text on hover */
-}
-
-#faq-list.hidden {
-  display: none;
-}
-
-#faq-toggle {
-  background-color: #37b7c3; /* Primary color for the FAQ toggle button */
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-#faq-toggle:hover {
-  background-color: #088395; /* Darker teal on hover */
+  color: #088395;
+  text-decoration: underline;
 }
 
 footer {
-  background-color: #071952; /* Dark navy for footer */
+  background-color: #071952;
   color: white;
   padding: 2rem 1rem;
   text-align: center;
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
-}
-
-.footer-links,
-.footer-social,
-.footer-contact,
-.newsletter-signup {
-  margin: 1rem 0;
 }
 
 .footer-links a {
@@ -217,7 +142,7 @@ footer {
 }
 
 .footer-links a:hover {
-  color: #37b7c3; /* Primary color on hover */
+  color: #37b7c3;
 }
 
 .footer-social a {
@@ -225,8 +150,8 @@ footer {
 }
 
 .footer-social ion-icon {
-  font-size: 30px; /* Adjust size as needed */
-  color: white; /* Color of the social media icons */
+  font-size: 30px;
+  color: white;
 }
 
 .newsletter-signup input {
@@ -237,7 +162,7 @@ footer {
 }
 
 .newsletter-signup .cta-btn {
-  background-color: #37b7c3; /* Primary color for newsletter CTA */
+  background-color: #37b7c3;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -245,17 +170,17 @@ footer {
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s;
 }
 
 .newsletter-signup .cta-btn:hover {
-  background-color: #088395; /* Darker teal on hover */
+  background-color: #088395;
 }
 
 .icon {
-  font-size: 2rem; /* Adjust the size as needed */
-  color: #071952; /* Dark navy color */
-  margin-bottom: 1rem; /* Space between icon and text */
+  font-size: 2rem;
+  color: #071952;
+  margin-bottom: 1rem;
 }
 
 a {
@@ -264,5 +189,5 @@ a {
 }
 
 a:hover {
-  color: #0077b5; /* changes color on hover */
+  color: #0077b5;
 }

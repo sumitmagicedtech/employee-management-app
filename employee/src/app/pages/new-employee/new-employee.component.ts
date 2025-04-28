@@ -69,7 +69,7 @@ export class NewEmployeeComponent implements OnInit {
   }
 
   onUpdateEmp() {
-    this.employeeService.upateEmployee(this.employeeObj).subscribe((res: Employee) => {
+    this.employeeService.updateEmployee(this.employeeObj).subscribe((res: Employee) => {
       alert('Employee Updated Successfully');
       this.router.navigate(['/employee']);  // Navigate back to the employee list
     }, error => {
