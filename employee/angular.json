@@ -67,7 +67,8 @@
               "buildTarget": "employee:build:production"
             },
             "development": {
-              "buildTarget": "employee:build:development"
+              "buildTarget": "employee:build:development",
+              "port": 4209  
             }
           },
           "defaultConfiguration": "development"

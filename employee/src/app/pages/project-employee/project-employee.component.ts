@@ -4,7 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { Observable } from 'rxjs';
 import { Employee, Project, projectEmployee } from '../../model/Employee';
 import { EmployeeService } from '../../services/employee.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-project-employee',
   imports: [CommonModule, FormsModule, ReactiveFormsModule], 
@@ -14,7 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ProjectEmployeeComponent implements OnInit {
   constructor(
     private employeeSrv: EmployeeService,
-    private route: ActivatedRoute 
+    private route: ActivatedRoute,
+    private router : Router 
+
   ) {
     this.initializeForms();
     this.employeeData$ = this.employeeSrv.getEmployee();
@@ -139,4 +141,9 @@ export class ProjectEmployeeComponent implements OnInit {
       console.log('Error:', error);
     });
   }
+
+  onClose(){
+    this.router.navigate(['/projects']);
+  }
+
 }
